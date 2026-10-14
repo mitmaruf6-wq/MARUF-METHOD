@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TikTok HD Pro Suite | Created by MD MARUF</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        tiktokPink: '#FE2C55',
+                        tiktokCyan: '#25F4EE',
+                        darkBg: '#090D16',
+                        cardBg: '#131A29',
+                        cardBorder: '#1E293B',
+                        goldColor: '#F59E0B',
+                    },
+                    backgroundImage: {
+                        'neon-gradient': 'linear-gradient(135deg, #FE2C55 0%, #25F4EE 100%)',
+                        'btn-gradient': 'linear-gradient(90deg, #FE2C55 0%, #902BD0 50%, #25F4EE 100%)',
+                        'gold-gradient': 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            background-color: #090D16;
+            color: #F1F5F9;
+        }
+        .glow-effect {
+            box-shadow: 0 0 25px rgba(254, 44, 85, 0.25), 0 0 25px rgba(37, 244, 238, 0.15);
+        }
+        .glow-pink {
+            box-shadow: 0 0 20px rgba(254, 44, 85, 0.35);
+        }
+        .glow-gold {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-darkBg text-slate-100 flex flex-col justify-between custom-scrollbar">
+
+    <!-- Header -->
+    <header class="border-b border-cardBorder bg-cardBg/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 space-x-reverse">
+                <div class="w-11 h-11 rounded-xl bg-neon-gradient p-[2px] flex items-center justify-center glow-effect">
+                    <div class="w-full h-full bg-darkBg rounded-[10px] flex items-center justify-center">
+                        <i class="fa-brands fa-tiktok text-xl text-tiktokCyan"></i>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-tiktokPink via-purple-400 to-tiktokCyan">
+                        TikTok HD Pro Suite
+                    </h1>
+                    <p class="text-xs text-slate-400 font-medium flex items-center gap-1.5">
+                        <span>Developed with <i class="fa-solid fa-heart text-tiktokPink"></i> by</span> 
+                        <span class="text-tiktokCyan font-bold tracking-wide">MD MARUF</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Top Header Action Button (TikTok Login) -->
+            <div class="flex items-center space-x-2 space-x-reverse">
+                <button onclick="goToTikTokLogin()" class="px-4 py-2.5 rounded-xl bg-tiktokPink hover:bg-rose-600 text-white font-bold text-xs sm:text-sm transition flex items-center gap-2 glow-pink">
+                    <i class="fa-brands fa-tiktok text-base"></i>
+                    <span>TikTok Login</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Column: Video Downloader, Quality Presets & Local Validator (8 Cols) -->
+        <section class="lg:col-span-8 space-y-6">
+            
+            <!-- TikTok Downloader Card -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-4 glow-effect">
+                <h2 class="text-base font-bold text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-arrow-down text-tiktokCyan"></i>
+                    টিকটক ডাউনলোড করুন
+                </h2>
+                <p class="text-xs text-slate-400">
+                    নিচের বাটনে ক্লিক করলে নতুন ট্যাবে <code class="text-tiktokCyan">tikwm.com</code> ওপেন হবে, যেখান থেকে ওয়াটারমার্ক ছাড়া ভিডিও ডাউনলোড করতে পারবেন।
+                </p>
+
+                <button onclick="openTikWM()" class="w-full py-3.5 rounded-xl bg-btn-gradient text-white font-bold text-sm transition shadow-lg hover:opacity-95 flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-download"></i>
+                    <span>টিকটক ডাউনলোড করুন (TikWM)</span>
+                </button>
+            </div>
+
+            <!-- Video Quality Presets (Free 1080p 60fps & Paid Locked Features) -->
+            <div class="bg-cardBg border border-amber-500/30 rounded-2xl p-6 space-y-4 glow-gold">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-base font-bold text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders"></i>
+                        ভিডিও কোয়ালিটি ও রেজোলিউশন মোড
+                    </h2>
+                    <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">ফ্রি ও ভিআইপি</span>
+                </div>
+                <p class="text-xs text-slate-400">
+                    আপনার ভিডিওর জন্য পছন্দসই ফ্রেমরেট এবং কোয়ালিটি সিলেক্ট করুন:
+                </p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <!-- Free Item: 1080p 60fps -->
+                    <div onclick="selectFreeQuality('1080p 60FPS')" class="p-4 bg-slate-900/90 hover:bg-slate-900 rounded-xl border border-emerald-500/50 cursor-pointer transition relative group text-center space-y-2">
+                        <div class="absolute top-2 right-2 text-emerald-400 text-xs">
+                            <i class="fa-solid fa-check-circle"></i>
+                        </div>
+                        <p class="text-sm font-extrabold text-slate-100">1080p 60FPS</p>
+                        <span class="inline-block px-3 py-1 bg-emerald-500/20 text-emerald-300 font-bold text-xs rounded-lg border border-emerald-500/30">সম্পূর্ণ ফ্রি</span>
+                    </div>
+
+                    <!-- Locked Item 1 -->
+                    <div onclick="showLockedAlert('4K 120 FPS', '৫০০ টাকা')" class="p-4 bg-slate-900/80 hover:bg-slate-900 rounded-xl border border-amber-500/40 cursor-pointer transition relative group text-center space-y-2">
+                        <div class="absolute top-2 right-2 text-amber-400 text-xs">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <p class="text-sm font-extrabold text-slate-100">4K 120 FPS</p>
+                        <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 font-bold text-xs rounded-lg border border-amber-500/30">মূল্য: ৫০০ টাকা</span>
+                    </div>
+
+                    <!-- Locked Item 2 -->
+                    <div onclick="showLockedAlert('4K 60 FPS', '৩৫০ টাকা')" class="p-4 bg-slate-900/80 hover:bg-slate-900 rounded-xl border border-amber-500/40 cursor-pointer transition relative group text-center space-y-2">
+                        <div class="absolute top-2 right-2 text-amber-400 text-xs">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <p class="text-sm font-extrabold text-slate-100">4K 60 FPS</p>
+                        <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 font-bold text-xs rounded-lg border border-amber-500/30">মূল্য: ৩৫০ টাকা</span>
+                    </div>
+
+                    <!-- Locked Item 3 -->
+                    <div onclick="showLockedAlert('8K 30 FPS', '১০০০ টাকা')" class="p-4 bg-slate-900/80 hover:bg-slate-900 rounded-xl border border-amber-500/40 cursor-pointer transition relative group text-center space-y-2">
+                        <div class="absolute top-2 right-2 text-amber-400 text-xs">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <p class="text-sm font-extrabold text-slate-100">8K 30 FPS</p>
+                        <span class="inline-block px-3 py-1 bg-amber-500/20 text-amber-300 font-bold text-xs rounded-lg border border-amber-500/30">মূল্য: ১০০০ টাকা</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drag & Drop Local Validator Zone -->
+            <div class="bg-cardBg border-2 border-dashed border-slate-700 hover:border-tiktokPink rounded-2xl p-8 text-center transition-all duration-300 relative group" id="dropZone">
+                <input type="file" id="videoFileInput" accept="video/mp4,video/mov,video/webm" class="hidden" onchange="handleFileSelect(event)">
+                
+                <div id="uploadPrompt" class="space-y-4">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-tiktokCyan group-hover:scale-110 group-hover:border-tiktokPink transition-all duration-300">
+                        <i class="fa-solid fa-video text-3xl"></i>
+                    </div>
+                    <div>
+                        <p class="text-base font-semibold text-slate-200">
+                            অথবা লোকাল ভিডিও ফাইল ড্র্যাগ করে ড্রপ করুন
+                        </p>
+                        <p class="text-xs text-slate-400 mt-1">
+                            রেজোলিউশন যাচাই করে সরাসরি টিকটকে আপলোড করুন
+                        </p>
+                    </div>
+                    <button onclick="document.getElementById('videoFileInput').click()" class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-semibold border border-slate-600 transition">
+                        <i class="fa-solid fa-folder-open mr-2 text-tiktokPink"></i> <span>লোকাল ফাইল নির্বাচন করুন</span>
+                    </button>
+                </div>
+
+                <!-- Video Info & Ready Actions State -->
+                <div id="selectedFileInfo" class="hidden space-y-5">
+                    <div class="p-4 bg-slate-900/80 rounded-xl border border-slate-700 flex items-center justify-between text-left">
+                        <div class="flex items-center space-x-3 overflow-hidden">
+                            <div class="w-12 h-12 bg-slate-800 rounded-lg flex items-center justify-center text-tiktokPink shrink-0 border border-slate-700">
+                                <i class="fa-solid fa-file-video text-xl"></i>
+                            </div>
+                            <div class="truncate">
+                                <p id="fileName" class="text-sm font-bold text-slate-100 truncate">sample_video.mp4</p>
+                                <p id="fileMeta" class="text-xs text-slate-400 mt-0.5">সাইজ: 0 MB | টাইপ: MP4</p>
+                            </div>
+                        </div>
+                        <button onclick="removeFile()" class="p-2 text-slate-400 hover:text-tiktokPink transition shrink-0">
+                            <i class="fa-solid fa-xmark text-lg"></i>
+                        </button>
+                    </div>
+
+                    <!-- Clean Real Specs Badge -->
+                    <div class="grid grid-cols-2 gap-4 text-center">
+                        <div class="p-4 bg-slate-900/50 rounded-xl border border-slate-800">
+                            <span class="block text-xs text-slate-400 mb-1">ভিডিও রেজোলিউশন</span>
+                            <span id="resBadge" class="text-base font-extrabold text-tiktokPink">-- x --</span>
+                        </div>
+                        <div class="p-4 bg-slate-900/50 rounded-xl border border-slate-800">
+                            <span class="block text-xs text-slate-400 mb-1">আপলোড স্ট্যাটাস</span>
+                            <span class="text-base font-extrabold text-emerald-400">Ready for Web</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons Group -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <button onclick="downloadVideo()" class="py-3.5 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 border border-tiktokCyan/50 text-tiktokCyan font-bold text-sm transition flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-download"></i>
+                            <span>১. গ্যালারিতে সেভ করুন</span>
+                        </button>
+                        <button onclick="goToTikTokLogin()" class="py-3.5 px-4 rounded-xl bg-btn-gradient text-white font-bold text-sm shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2 glow-effect">
+                            <i class="fa-brands fa-tiktok text-base"></i>
+                            <span>২. TikTok Login</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guidelines -->
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-6 space-y-4">
+                <h3 class="text-base font-bold text-slate-100 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb text-amber-400"></i>
+                    এমডি মারুফ প্রো টিপস
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                        <p class="font-bold text-slate-100">📌 ফ্রি 1080p 60fps মোড</p>
+                        <p class="text-slate-400">আপনি যেকোনো সময় সম্পূর্ণ ফ্রিতে 1080p 60fps কোয়ালিটি মোড ব্যবহার করতে পারবেন।</p>
+                    </div>
+                    <div class="p-4 bg-slate-900/60 rounded-xl border border-slate-800 space-y-1">
+                        <p class="font-bold text-slate-100">📌 Desktop Site Mode</p>
+                        <p class="text-slate-400">ব্রাউজারে টিকটক আপলোড পেজ খোলার পর থ্রি-ডট মেনু থেকে Desktop site অন করে পোস্ট করুন।</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Right Column: Video Preview Side Panel (4 Cols) -->
+        <aside class="lg:col-span-4 space-y-6">
+            
+            <div class="bg-cardBg border border-cardBorder rounded-2xl p-5 space-y-4">
+                <h3 class="text-sm font-bold text-slate-200 flex items-center justify-between">
+                    <span><i class="fa-solid fa-play text-tiktokPink mr-2"></i> ভিডিও প্রিভিউ</span>
+                    <span class="text-xs font-normal text-slate-400">9:16 Vertical</span>
+                </h3>
+
+                <div class="aspect-[9/16] max-h-[380px] w-full bg-slate-950 rounded-xl overflow-hidden border border-slate-800 flex items-center justify-center relative">
+                    <video id="videoPreview" class="w-full h-full object-contain hidden" controls></video>
+                    <div id="videoPlaceholder" class="text-center p-6 space-y-2">
+                        <i class="fa-solid fa-film text-4xl text-slate-700"></i>
+                        <p class="text-xs text-slate-500">ভিডিও সিলেক্ট করা হলে এখানে প্রিভিউ দেখা যাবে</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Direct Navigation Button -->
+            <button onclick="goToTikTokLogin()" class="w-full p-4 rounded-2xl bg-gradient-to-r from-slate-900 to-slate-800 hover:to-slate-700 border border-slate-700 text-center text-xs font-semibold text-slate-200 transition flex items-center justify-center gap-2">
+                <i class="fa-brands fa-tiktok text-tiktokPink text-base"></i>
+                <span>সরাসরি TikTok Login পেজে যান</span>
+            </button>
+
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cardBorder bg-cardBg py-6 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-200 space-y-2">
+            <p>TikTok HD Pro Assistant &copy; 2026. Designed & Developed by <span class="text-tiktokCyan font-bold">MD MARUF</span>.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        let selectedFile = null;
+
+        const dropZone = document.getElementById('dropZone');
+
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+            }, false);
+        });
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.add('border-tiktokPink', 'bg-slate-900/50'), false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropZone.addEventListener(eventName, () => dropZone.classList.remove('border-tiktokPink', 'bg-slate-900/50'), false);
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            const files = e.dataTransfer.files;
+            if (files.length > 0) processSelectedFile(files[0]);
+        });
+
+        function handleFileSelect(event) {
+            const files = event.target.files;
+            if (files.length > 0) processSelectedFile(files[0]);
+        }
+
+        function processSelectedFile(file) {
+            selectedFile = file;
+            document.getElementById('fileName').innerText = file.name;
+            const sizeMB = (file.size / (1024 * 1024)).toFixed(2);
+            document.getElementById('fileMeta').innerText = `সাইজ: ${sizeMB} MB | টাইপ: ${file.type.split('/')[1]?.toUpperCase() || 'MP4'}`;
+
+            const videoPreview = document.getElementById('videoPreview');
+            const videoPlaceholder = document.getElementById('videoPlaceholder');
+            const objectUrl = URL.createObjectURL(file);
+            videoPreview.src = objectUrl;
+            videoPreview.classList.remove('hidden');
+            videoPlaceholder.classList.add('hidden');
+
+            // ভিডিওর নিখুঁত রেজোলিউশন ডিটেক্ট করা
+            videoPreview.onloadedmetadata = () => {
+                const width = videoPreview.videoWidth;
+                const height = videoPreview.videoHeight;
+                document.getElementById('resBadge').innerText = `${width} × ${height}`;
+            };
+
+            document.getElementById('uploadPrompt').classList.add('hidden');
+            document.getElementById('selectedFileInfo').classList.remove('hidden');
+        }
+
+        function removeFile() {
+            selectedFile = null;
+            document.getElementById('videoFileInput').value = '';
+            document.getElementById('uploadPrompt').classList.remove('hidden');
+            document.getElementById('selectedFileInfo').classList.add('hidden');
+
+            const videoPreview = document.getElementById('videoPreview');
+            const videoPlaceholder = document.getElementById('videoPlaceholder');
+            videoPreview.pause();
+            videoPreview.src = '';
+            videoPreview.classList.add('hidden');
+            videoPlaceholder.classList.remove('hidden');
+        }
+
+        // লোকাল ভিডিও গ্যালারিতে সেভ করার ফাংশন
+        function downloadVideo() {
+            if (!selectedFile) return;
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(selectedFile);
+            a.download = `TikTok_HD_${selectedFile.name}`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+
+        // TikTok Login পেজে রিডাইরেক্ট হওয়ার ফাংশন
+        function goToTikTokLogin() {
+            window.open('https://www.tiktok.com/login', '_blank');
+        }
+
+        // TikWM সাইটে নতুন ট্যাবে ওপেন করার ফাংশন
+        function openTikWM() {
+            window.open('https://tikwm.com/', '_blank');
+        }
+
+        // ফ্রি কোয়ালিটি সিলেক্ট করার ফাংশন
+        function selectFreeQuality(qualityName) {
+            alert(`✅ ${qualityName} মোড সফলভাবে সিলেক্ট করা হয়েছে! এটি একটি ফ্রি ফিচার।`);
+        }
+
+        // লক করা প্রিমিয়াম ফিচারে ক্লিক করলে নোটিফিকেশন দেখানোর ফাংশন
+        function showLockedAlert(featureName, price) {
+            alert(`⚠️ এই ফিচারটি (${featureName}) আনলক করতে হবে!\n\nমূল্য: ${price}\n\nপ্রিমিয়াম মেম্বারশিপ নিতে ডেভেলপার MD MARUF এর সাথে যোগাযোগ করুন।`);
+        }
+    </script>
+</body>
+</html>

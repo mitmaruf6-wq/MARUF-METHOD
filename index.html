@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="bn" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARUF 4K 120FPS Engine | TikTok Video Optimizer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        neonGreen: '#22c55e',
+                        whatsappGreen: '#25D366',
+                        darkBg: '#05080e',
+                        cardBg: '#0e1626',
+                        cardBorder: '#1b2a4a',
+                    },
+                    backgroundImage: {
+                        'neon-gradient': 'linear-gradient(135deg, #22c55e 0%, #10b981 100%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Hind Siliguri', 'Inter', sans-serif; background-color: #05080e; color: #F1F5F9; overflow-x: hidden; }
+        .font-english { font-family: 'Inter', sans-serif; }
+        .glow-green { box-shadow: 0 0 30px rgba(34, 197, 94, 0.28); }
+        .glow-whatsapp { box-shadow: 0 0 25px rgba(37, 211, 102, 0.25); }
+        
+        /* Snowfall Animation */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px) translateX(0); opacity: 1; }
+            100% { transform: translateY(105vh) translateX(50px); opacity: 0.3; }
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-darkBg text-slate-100 flex flex-col justify-between relative">
+
+    <!-- Background Audio Element -->
+    <audio id="bgAudio" loop></audio>
+
+    <!-- Header -->
+    <header class="border-b border-cardBorder bg-cardBg/90 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between gap-3">
+            <div class="flex items-center space-x-3.5">
+                <div class="w-12 h-12 rounded-2xl bg-neon-gradient p-[2px] flex items-center justify-center glow-green shrink-0">
+                    <div class="w-full h-full bg-darkBg rounded-[14px] flex items-center justify-center">
+                        <span class="font-english text-xl font-black text-neonGreen">M</span>
+                    </div>
+                </div>
+                <div>
+                    <h1 class="font-english text-xl sm:text-3xl font-black tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-neonGreen via-emerald-400 to-teal-300">
+                        MARUF ENGINE
+                    </h1>
+                    <p class="text-[11px] sm:text-xs text-slate-400 font-medium tracking-wide uppercase">OFFICIAL TIKTOK 4K / 60FPS OPTIMIZER</p>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-2">
+                <!-- Audio Toggle Button -->
+                <button onclick="toggleAudio()" id="audioToggleBtn" title="Audio On/Off" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-neonGreen text-xs flex items-center gap-1.5 transition">
+                    <i id="audioIcon" class="fa-solid fa-volume-xmark text-rose-400"></i>
+                    <span id="audioText" class="font-english hidden sm:inline text-[11px]">Audio Off</span>
+                </button>
+
+                <!-- MARUF VIP Badge -->
+                <div id="vipStatusBadge" class="px-3.5 py-2 rounded-2xl bg-slate-900/90 border border-neonGreen/40 text-xs font-english font-bold text-neonGreen flex items-center gap-2 glow-green">
+                    <span class="w-2 h-2 rounded-full bg-neonGreen animate-pulse"></span>
+                    <span id="vipBadgeText">MARUF VIP</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Toast Notification Box -->
+    <div id="toastBox" class="fixed bottom-6 right-6 z-50 max-w-sm w-[calc(100%-3rem)] transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-slate-900/95 backdrop-blur-md border border-slate-700 rounded-2xl p-4 shadow-2xl flex items-start gap-3">
+            <div id="toastIcon" class="w-9 h-9 rounded-xl bg-neonGreen/20 text-neonGreen flex items-center justify-center shrink-0 mt-0.5">
+                <i class="fa-solid fa-circle-check text-lg"></i>
+            </div>
+            <div class="flex-1 text-left">
+                <h4 id="toastTitle" class="text-sm font-bold text-slate-100">সফল হয়েছে</h4>
+                <p id="toastMessage" class="text-xs text-slate-300 mt-1"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex-grow space-y-8 relative z-10">
+        
+        <!-- Hero Banner -->
+        <section class="bg-cardBg border border-neonGreen/30 rounded-3xl p-7 sm:p-12 text-center space-y-5 glow-green relative overflow-hidden">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-neonGreen/10 border border-neonGreen/30 text-neonGreen text-xs font-english font-bold uppercase tracking-widest">
+                • MARUF EXCLUSIVE METHOD • PRO V2
+            </div>
+            
+            <div class="space-y-2">
+                <h2 class="font-english text-4xl sm:text-6xl font-black uppercase tracking-tight text-neonGreen drop-shadow-lg">
+                    MARUF
+                </h2>
+                <h3 class="font-english text-xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight text-white leading-tight">
+                    UPLOAD UP TO <span class="text-neonGreen">4K 120 FPS</span> ON TIKTOK
+                </h3>
+            </div>
+
+            <p class="text-xs sm:text-sm text-slate-400 max-w-2xl mx-auto leading-relaxed">
+                Bypass TikTok compression — Optimize your video with <strong class="text-slate-200">MARUF Engine</strong> and keep ultra-sharp full quality, zero re-encoding.
+            </p>
+
+            <!-- WhatsApp Button -->
+            <div class="pt-2">
+                <a href="https://wa.me/8801762983231?text=Hi%20MARUF,%20I%20want%20to%20buy%20Optimizer%20User%20and%20Password." target="_blank" class="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-whatsappGreen text-slate-950 font-extrabold text-xs sm:text-sm glow-whatsapp hover:opacity-90 transition transform hover:scale-105">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>পাসওয়ার্ড কিনতে WhatsApp করুন (01762983231)</span>
+                </a>
+            </div>
+
+            <div id="loginUserGreet" class="hidden text-xs text-emerald-400 font-bold pt-1">
+                ✅ লগইন করা আছে: <span id="loggedUsername" class="text-white underline"></span> (<a href="#" onclick="logoutUser()" class="text-rose-400 ml-2 hover:underline">লগআউট</a>)
+            </div>
+        </section>
+
+        <!-- Optimizers List -->
+        <section class="bg-cardBg border border-cardBorder rounded-3xl p-6 sm:p-8 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-4">
+                <h2 class="text-lg sm:text-xl font-extrabold text-slate-100 flex items-center gap-2.5">
+                    <i class="fa-brands fa-chrome text-neonGreen text-xl"></i>
+                    <span>MARUF অপ্টিমাইজার মেথডসমূহ</span>
+                </h2>
+                <span id="optimizerCountBadge" class="px-3.5 py-1 rounded-full bg-neonGreen/15 border border-neonGreen/30 text-neonGreen text-xs font-bold">
+                    লোড হচ্ছে...
+                </span>
+            </div>
+
+            <div id="optimizersGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 animate-pulse h-36"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cardBorder bg-cardBg py-6 mt-12 text-center text-xs text-slate-400 space-y-1 relative z-10">
+        <p class="font-english text-sm font-bold text-slate-200">POWERED BY <span class="text-neonGreen tracking-wider">MARUF</span></p>
+        <p>&copy; 2026 MARUF TikTok Optimization System. All Rights Reserved.</p>
+    </footer>
+
+    <!-- Password Gate Modal -->
+    <div id="passwordGateModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+        <div class="bg-cardBg border border-slate-700 rounded-2xl max-w-md w-full p-6 space-y-5 shadow-2xl relative">
+            <button onclick="closePasswordGate()" class="absolute top-4 right-4 text-slate-400 hover:text-white"><i class="fa-solid fa-xmark"></i></button>
+            <div class="text-center space-y-2">
+                <div class="w-14 h-14 mx-auto rounded-2xl bg-neonGreen/15 text-neonGreen flex items-center justify-center text-2xl"><i class="fa-solid fa-user-lock"></i></div>
+                <h3 class="text-lg font-extrabold text-slate-100">ইউজারনেম ও পাসওয়ার্ড দিন</h3>
+                <p id="gateTargetTitle" class="text-xs text-neonGreen font-bold">MARUF Optimizer</p>
+            </div>
+            <form onsubmit="verifyUserCredentials(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs text-slate-300 mb-1">ইউজারনেম (Username)</label>
+                    <input type="text" id="userAccessUsernameInput" required placeholder="ইউজারনেম লিখুন..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-slate-100 font-english focus:border-neonGreen focus:outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs text-slate-300 mb-1">পাসওয়ার্ড (Password)</label>
+                    <input type="text" id="userAccessPasswordInput" required placeholder="পাসওয়ার্ড লিখুন..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-700 text-sm text-slate-100 font-english focus:border-neonGreen focus:outline-none">
+                    <p id="gateErrorMsg" class="hidden text-xs text-rose-400 mt-2">❌ ভুল ইউজারনেম অথবা পাসওয়ার্ড!</p>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-neon-gradient text-slate-950 font-extrabold text-sm shadow-lg">প্রবেশ করুন</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FIREBASE & APP LOGIC -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-database.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDMG7elkedXB4HS9H4CcGVIgMOGx0hG6m4",
+            authDomain: "k-120-fps-method.firebaseapp.com",
+            projectId: "k-120-fps-method",
+            storageBucket: "k-120-fps-method.firebasestorage.app",
+            messagingSenderId: "965540152826",
+            appId: "1:965540152826:web:ebf6c26119e8f52dae9043"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getDatabase(app);
+
+        let optimizersData = [];
+        let usersData = [];
+        let pendingTargetOptimizer = null;
+        let isAudioPlaying = false;
+        let snowInterval = null;
+
+        signInAnonymously(auth).catch(err => console.error(err));
+        checkSavedLogin();
+
+        // Listen to Settings (Music & Snowfall)
+        onValue(ref(db, 'app_settings'), (snapshot) => {
+            const settings = snapshot.val() || {};
+            
+            // Audio settings
+            const audioElem = document.getElementById('bgAudio');
+            const defaultMusic = "https://files.catbox.moe/5g18dz.mp3";
+            const currentMusicUrl = settings.musicUrl || defaultMusic;
+            
+            if (audioElem.src !== currentMusicUrl) {
+                audioElem.src = currentMusicUrl;
+                if (isAudioPlaying) audioElem.play().catch(e => console.log(e));
+            }
+
+            // Snowfall settings
+            const snowActive = settings.snowfallActive !== false; // default true
+            toggleSnowfallEffect(snowActive);
+        });
+
+        onValue(ref(db, 'optimizers'), (snapshot) => {
+            const data = snapshot.val();
+            optimizersData = [];
+            if (data) Object.keys(data).forEach(key => optimizersData.push({ id: key, ...data[key] }));
+            renderPublicOptimizers();
+        });
+
+        onValue(ref(db, 'app_users'), (snapshot) => {
+            const data = snapshot.val();
+            usersData = [];
+            if (data) Object.keys(data).forEach(key => usersData.push({ id: key, ...data[key] }));
+            checkSavedLogin();
+        });
+
+        // Audio Toggle Function
+        window.toggleAudio = function() {
+            const audio = document.getElementById('bgAudio');
+            const icon = document.getElementById('audioIcon');
+            const text = document.getElementById('audioText');
+
+            if (isAudioPlaying) {
+                audio.pause();
+                isAudioPlaying = false;
+                icon.className = "fa-solid fa-volume-xmark text-rose-400";
+                text.innerText = "Audio Off";
+            } else {
+                audio.play().then(() => {
+                    isAudioPlaying = true;
+                    icon.className = "fa-solid fa-volume-high text-neonGreen animate-bounce";
+                    text.innerText = "Audio On";
+                }).catch(e => alert("Audio play blocked. Click anywhere first."));
+            }
+        };
+
+        // Snowfall Generator
+        function toggleSnowfallEffect(active) {
+            const existingFlakes = document.querySelectorAll('.snowflake');
+            existingFlakes.forEach(f => f.remove());
+            if (snowInterval) clearInterval(snowInterval);
+
+            if (!active) return;
+
+            snowInterval = setInterval(() => {
+                const snow = document.createElement('div');
+                snow.innerHTML = '❄';
+                snow.className = 'snowflake';
+                snow.style.left = Math.random() * window.innerWidth + 'px';
+                snow.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                snow.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                snow.style.color = '#ffffff';
+                document.body.appendChild(snow);
+
+                setTimeout(() => snow.remove(), 5000);
+            }, 200);
+        }
+
+        function checkSavedLogin() {
+            const savedUser = localStorage.getItem('maruf_optimizer_user');
+            if (savedUser && usersData.length > 0) {
+                const isValid = usersData.some(u => u.username === savedUser);
+                if (isValid) {
+                    document.getElementById('loginUserGreet').classList.remove('hidden');
+                    document.getElementById('loggedUsername').innerText = savedUser;
+                    document.getElementById('vipBadgeText').innerText = `VIP: ${savedUser}`;
+                } else {
+                    localStorage.removeItem('maruf_optimizer_user');
+                }
+            }
+        }
+
+        window.logoutUser = function() {
+            localStorage.removeItem('maruf_optimizer_user');
+            document.getElementById('loginUserGreet').classList.add('hidden');
+            document.getElementById('vipBadgeText').innerText = 'MARUF VIP';
+            showToast('লগআউট', 'সফলভাবে লগআউট করা হয়েছে।');
+        };
+
+        function renderPublicOptimizers() {
+            const grid = document.getElementById('optimizersGrid');
+            document.getElementById('optimizerCountBadge').innerText = `${optimizersData.length} টি মেথড উপলব্ধ`;
+            if (optimizersData.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center py-8 text-slate-400">কোনো মেথড পাওয়া যায়নি।</div>`;
+                return;
+            }
+            grid.innerHTML = optimizersData.map(item => `
+                <div class="bg-slate-900/90 border border-slate-800 hover:border-neonGreen/50 rounded-2xl p-5 flex flex-col justify-between space-y-4 shadow-lg transition">
+                    <div class="space-y-2">
+                        <span class="text-[10px] uppercase tracking-wider font-english font-bold px-2.5 py-1 rounded-full bg-neonGreen/10 text-neonGreen border border-neonGreen/20">MARUF PRO METHOD</span>
+                        <h3 class="font-english text-base sm:text-lg font-extrabold text-slate-100">${escapeHtml(item.title)}</h3>
+                    </div>
+                    <div class="space-y-2.5 pt-2">
+                        <button onclick="handleOptimizerClick('${item.id}')" class="w-full py-3 rounded-xl bg-neon-gradient text-slate-950 font-extrabold text-xs tracking-wide shadow-md hover:opacity-90 transition">
+                            <i class="fa-solid fa-bolt mr-1.5"></i> OPTIMIZE NOW
+                        </button>
+                        ${item.howtoUrl ? `
+                        <a href="${escapeHtml(item.howtoUrl)}" target="_blank" class="w-full py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-neonGreen font-bold text-xs flex items-center justify-center gap-2 border border-slate-700 transition">
+                            <i class="fa-solid fa-circle-play"></i> How To Use (ভিডিও দেখুন)
+                        </a>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        window.handleOptimizerClick = function(id) {
+            const savedUser = localStorage.getItem('maruf_optimizer_user');
+            const target = optimizersData.find(o => o.id === id);
+            if (!target) return;
+
+            if (savedUser && usersData.some(u => u.username === savedUser)) {
+                showToast('সফল!', 'MARUF অপ্টিমাইজার ওপেন হচ্ছে...');
+                window.open(target.url, '_blank');
+            } else {
+                openPasswordGate(id);
+            }
+        };
+
+        window.openPasswordGate = function(id) {
+            pendingTargetOptimizer = optimizersData.find(o => o.id === id);
+            if (!pendingTargetOptimizer) return;
+            document.getElementById('gateTargetTitle').innerText = pendingTargetOptimizer.title;
+            document.getElementById('userAccessUsernameInput').value = '';
+            document.getElementById('userAccessPasswordInput').value = '';
+            document.getElementById('gateErrorMsg').classList.add('hidden');
+            document.getElementById('passwordGateModal').classList.remove('hidden');
+            document.getElementById('passwordGateModal').classList.add('flex');
+        };
+
+        window.closePasswordGate = function() {
+            document.getElementById('passwordGateModal').classList.add('hidden');
+            document.getElementById('passwordGateModal').classList.remove('flex');
+        };
+
+        window.verifyUserCredentials = function(event) {
+            event.preventDefault();
+            const u = document.getElementById('userAccessUsernameInput').value.trim();
+            const p = document.getElementById('userAccessPasswordInput').value.trim();
+            const matchedUser = usersData.find(user => user.username === u && user.password === p);
+
+            if (matchedUser) {
+                localStorage.setItem('maruf_optimizer_user', u);
+                checkSavedLogin();
+
+                const url = pendingTargetOptimizer.url;
+                closePasswordGate();
+                showToast('সফল!', 'MARUF অপ্টিমাইজার ওপেন হচ্ছে...');
+                window.open(url, '_blank');
+            } else {
+                document.getElementById('gateErrorMsg').classList.remove('hidden');
+            }
+        };
+
+        window.showToast = function(title, message) {
+            const box = document.getElementById('toastBox');
+            document.getElementById('toastTitle').innerText = title;
+            document.getElementById('toastMessage').innerText = message;
+            box.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => box.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none'), 4000);
+        };
+
+        function escapeHtml(str) {
+            return str ? String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+        }
+    </script>
+</body>
+</html>
